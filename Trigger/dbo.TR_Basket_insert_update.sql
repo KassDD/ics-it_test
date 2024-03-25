@@ -1,11 +1,12 @@
 -- Создаем триггер для подсчета скидки
-create trigger dbo.TR_Basket_insert_update on dbo.Basket
+create trigger dbo.TR_Basket_insert_update 
+on dbo.Basket
 after insert
 as
 begin
     declare
         @ID_SKU int
-        , @Count int
+        ,@Count int
     
     -- Получаем ID_SKU и количество добавленных по нему записей
     select @ID_SKU = i.ID_SKU, @Count = count(*)
